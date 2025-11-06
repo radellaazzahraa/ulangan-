@@ -1,0 +1,391 @@
+:root{
+    --pink:#ffe6ea; 
+}
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    outline: none; border:none; 
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 2s linear;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+.navbar {
+  background-color: #ffe6ea;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px 0;
+  margin-left: auto;
+}
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 5px;
+  position: relative;
+}
+.navbar a:hover {
+  color: #e87b8a;
+}
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  cursor: pointer;
+}
+/* Isi dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1;
+}
+/* Link di dalam dropdown */
+.dropdown-content a {
+  color: #333;
+  padding: 8px 15px;
+  display: block;
+  text-align: left;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background-color: #ffe6ea;
+  color: #e87b8a;
+}
+/* Tampilkan dropdown saat hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+header{
+    position: fixed;
+    top:0; left:0; right:0;
+    background: #FFE5E7;
+    padding:2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem, 1rem, rgba(0, 0, 0,.1);
+}
+header .logo{
+    font-size: 3rem;
+    color:#333;
+    font-weight: border;
+}
+header .logo span{
+    color:var(#F2F1ED);
+}
+header .navbar a{
+    font-size: 1.7rem;
+    padding:0 1.5rem; 
+    color:#666;
+}
+header .navbar a:hover{
+    color:var(--pink);
+}
+header .icons a{
+    font-size: 2.5rem;
+    color:#333;
+    margin-left: 1.5rem;
+}
+header .icons a:hover{
+    color:var(--pink);
+}
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 8%;
+  background: #f9f9f9;
+}
+.home .content {
+  text-align: left;
+  max-width: 600px;
+}
+.home h3 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  animation: floatText 3s ease-in-out infinite;
+}
+.home h1 {
+  font-size: 3.5rem;
+  color: #111;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: floatText 3s ease-in-out infinite;
+}
+.home span {
+  font-size: 2rem;
+  color: #555;
+  line-height: 1.6;
+  display: inline-block;
+  animation: floatText 3s ease-in-out infinite;
+}
+@keyframes floatText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Gambar kanan */
+.home .image img {
+  width: 450px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  margin-left: 70px;
+  margin-top: 40px;
+}
+/* Popup Merché versi besar */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+  z-index: 999;
+}
+.popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-content {
+  background: #fff;
+  width: 600px;              
+  max-width: 90%;            
+  padding: 40px 60px;      
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  animation: fadeUpDown 5s ease-in-out forwards;
+}
+/* Judul popup */
+.popup-content h2 {
+  font-size: 1.8rem;         
+  color: #111;
+  margin-bottom: 10px;
+}
+/* Teks berwarna */
+.popup-content span {
+  color: #e06b8d;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+/* Tombol close (X) */
+.popup-content button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  color: #999;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.popup-content button:hover {
+  color: #000;
+}
+/* Animasi popup */
+@keyframes fadeUpDown {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  20%, 80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+}
+/* ===== FONT & DASAR ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+/* ===== KONTAINER ARTIKEL (3 KOLOM) ===== */
+.artikel-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px; 
+}
+/* ===== SETIAP ARTIKEL ===== */
+.artikel {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.artikel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+/* ===== FOTO ARTIKEL ===== */
+.artikel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px solid #f3f3f3;
+}
+/* ===== TEKS ===== */
+.artikel h2 {
+  font-size: 20px;
+  margin: 15px;
+  font-weight: 600;
+  color: #111;
+}
+.artikel p {
+  margin: 0 15px 10px;
+  text-align: justify;
+  color: #444;
+  line-height: 1.6;
+}
+/* ===== LINK ===== */
+.artikel a {
+  display: inline-block;
+  margin: 10px 15px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #000;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+.artikel a:hover {
+  color: #888;
+  border-bottom-color: #888;
+}
+/* ===== TANGGAL ===== */
+.tanggal {
+  margin: 0 15px 15px;
+  color: #777;
+  font-size: 14px;
+}
+/* === WRAPPER UTAMA === */
+.artikel-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 20px;
+}
+/* === KONTEN ARTIKEL === */
+.artikel-container {
+  flex: 3;
+}
+.artikel {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+.artikel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.artikel h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.artikel p {
+  text-align: justify;
+  margin-bottom: 8px;
+}
+.artikel a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  transition: 0.3s;
+}
+.atikel a:hover {
+  color: #888;
+  border-bottom-color: #888;
+}
+.tanggal {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
+}
+/* === SIDEBAR KIRI MINI === */
+.sidebar-kiri {
+  position: fixed;
+  top: 80px;
+  left: 15px;
+  width: 90px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  text-align: center;
+  padding: 8px;
+  z-index: 1000;
+}
+.logo-kiri {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+#clock {
+  font-size: 14px;
+  font-weight: bold;
+  color: #e06b8d;
+  font-family: monospace;
+}
+.footer {
+  background-color: #FFE5E7;
+  color: #333;
+  text-align: center;
+  padding: 40px 20px; 
+  font-size: 1.1rem; 
+  margin-top: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-content span {
+  color: #ffa8af;
+  font-weight: 600;
+}
+.footer-content p {
+  margin: 0;
+  line-height: 1.8;
+}

@@ -1,0 +1,47 @@
+.banner {
+  text-align: center;
+}
+.tagline {
+  background-color: #ffe6ea;
+  padding: 20px;
+}
+.tagline h1 {
+  font-family: 'Pacifico', cursive;
+  color: #000;
+  font-size: 2rem;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* ===== Judul ===== */
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #c49b7d;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  font-weight: 700;
+}
+/* ===== Kotak Hiasan Deskripsi ===== */
+.about-box {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  background-color: #fffaf6;          
+  border: 1.5px solid #e8d9c7;         
+  border-radius: 12px;                 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);  
+  padding: 30px 40px;
+}
+/* ===== Isi Deskripsi ===== */
+.about-box p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0;
+}

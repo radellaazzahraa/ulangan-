@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merché membership</title>
+  <link rel="icon" href="images/logo merche.jpeg">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #d7dc85; 
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: white;
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .membership-section {
+      color: white;
+      background-color: #cdd57c;
+      padding: 120px 20px;
+      min-height: 80vh;
+    }
+    .membership-section h1 {
+      color: white;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .membership-section p {
+      color: white;
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    .btn-join {
+      padding: 12px 30px;
+      font-size: 16px;
+      color: white;
+      border: 1px solid white;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-join:hover {
+      background: white;
+      color: #b4b94d;
+    }
+
+    /* ==== POPUP STYLING ==== */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 340px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: fadeUp 0.3s ease;
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #666;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button.submit {
+      width: 100%;
+      padding: 10px;
+      background: #b4b94d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    button.submit:hover {
+      background: #9ca33e;
+    }
+  </style>
+</head>
+<body>
+  <header>merché</header>
+  <section class="membership-section" id="membershipSection">
+    <h1>merché membership</h1>
+    <p>Be part of merché membership and unlock a world of style. 
+       Join now for exclusive benefits, promotions, and discounts, 
+       making your fashion journey even more delightful and enjoyable!</p>
+    <button class="btn-join" id="openPopup">Join Membership</button>
+  </section>
+
+  <!-- Popup Form -->
+  <div class="popup" id="popupForm">
+    <div class="popup-content">
+      <span class="close" id="closePopup">&times;</span>
+      <h2>Daftar Member</h2>
+      <p style="text-align:center;color:#666;">Isi data kamu untuk bergabung dengan merché.</p>
+      <input type="text" id="nama" placeholder="Nama Lengkap*" required>
+      <input type="email" id="email" placeholder="Email Kamu*" required>
+      <input type="text" id="wa" placeholder="Nomor WhatsApp*" required>
+      <button class="submit" id="btnDaftar">Kirim</button>
+    </div>
+  </div>
+  <script>
+    const popup = document.getElementById('popupForm');
+    const openBtn = document.getElementById('openPopup');
+    const closeBtn = document.getElementById('closePopup');
+    const btnDaftar = document.getElementById('btnDaftar');
+    const section = document.getElementById('membershipSection');
+    // Buka popup
+    openBtn.onclick = () => popup.style.display = 'flex';
+    // Tutup popup
+    closeBtn.onclick = () => popup.style.display = 'none';
+    window.onclick = (e) => { if (e.target === popup) popup.style.display = 'none'; };
+    const namaTersimpan = localStorage.getItem("userNama");
+    if (namaTersimpan) {
+      section.innerHTML = `
+        <h1>Halo, ${namaTersimpan}! 🎉</h1>
+        <p>Terima kasih telah menjadi member merché. Nikmati diskon dan promo spesial untukmu!</p>
+        <button class="btn-join" onclick="logout()">Keluar</button>
+      `;
+    }
+    // Simpan data dan kembali ke home
+    btnDaftar.onclick = () => {
+      const nama = document.getElementById('nama').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const wa = document.getElementById('wa').value.trim();
+      if (!nama || !email || !wa) {
+        alert("Harap isi semua data terlebih dahulu!");
+        return;
+      }
+      localStorage.setItem("userNama", nama);
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userWa", wa);
+      alert("Pendaftaran berhasil! Selamat datang, " + nama + " 🎉");
+      popup.style.display = 'none';
+      window.location.href = "beranda.html"; 
+    };
+    // Logout function
+    function logout() {
+      localStorage.removeItem("userNama");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userWa");
+      alert("Kamu telah keluar dari akun.");
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+.banner {
+  text-align: center;
+}
+.tagline {
+  background-color: #ffe6ea;
+  padding: 20px;
+}
+.tagline h1 {
+  font-family: 'Pacifico', cursive;
+  color: #000;
+  font-size: 2rem;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* Gaya umum */
+body {
+ font-family: 'Playfair Display', serif;
+  background-color: #fff;
+  color: #222;
+} 
+/* Link ke Google Maps */
+.map-link {
+  font-size: 0.95rem;
+  color: #b68d67;
+  text-decoration: none;
+  font-weight: 500; 
+}
+/* Alamat */
+.store p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+/* Nama toko */
+.store h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #111;
+}
+.store {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6d5c3;
+}
+
